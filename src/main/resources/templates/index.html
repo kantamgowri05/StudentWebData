@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Students</title>
+</head>
+<body>
+
+<h2>Student List</h2>
+
+<a href="/add">Add Student</a>
+
+<form action="/filter">
+    <input type="text" name="dept" placeholder="Enter Department">
+    <button type="submit">Filter</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Age</th>
+    </tr>
+
+    <tr th:each="s : ${students}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.name}"></td>
+        <td th:text="${s.department}"></td>
+        <td th:text="${s.age}"></td>
+    </tr>
+</table>
+
+<a href="/page?page=0">Page 1</a>
+<a href="/page?page=1">Page 2</a>
+
+</body>
+</html>
